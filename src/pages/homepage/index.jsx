@@ -3,16 +3,21 @@ import { Container, Options } from "./styles";
 
 const Homepage = () => {
   const options = [
-    { title: "Novo Medicamento", icon: "FaPlus" },
-    { title: "Verificar Existentes", icon: "FaSearch" },
+    { title: "Novo Medicamento", icon: "FaPlus", route: "register" },
+    { title: "Verificar Existentes", icon: "FaSearch", route: "list" },
   ];
 
   return (
     <Container>
       <h1>Seja bem-vindo!</h1>
       <Options>
-        {options.map((option) => (
-          <CardsHomePage title={option.title} icon={option.icon} />
+        {options.map((option, id) => (
+          <CardsHomePage
+            title={option.title}
+            icon={option.icon}
+            route={option.route}
+            key={id}
+          />
         ))}
       </Options>
     </Container>
